@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CDN Vault — GitHub File Uploader</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;600;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="grid-bg"></div>
+
+<div class="app">
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="logo">
+      <span class="logo-icon">⬡</span>
+      <span class="logo-text">CDN<strong>Vault</strong></span>
+    </div>
+    <div class="header-meta">
+      <span id="repoLabel">Yonata29 / CDN-GITHUB</span>
+    </div>
+  </header>
+
+  <!-- STATS DASHBOARD -->
+  <section class="stats-section">
+    <div class="stat-card" id="statFiles">
+      <div class="stat-label">Total Files</div>
+      <div class="stat-value" id="totalFiles">0</div>
+      <div class="stat-bar-wrap"><div class="stat-bar" id="barFiles"></div></div>
+    </div>
+    <div class="stat-card" id="statSize">
+      <div class="stat-label">Total Size</div>
+      <div class="stat-value" id="totalSize">0 B</div>
+      <div class="stat-bar-wrap"><div class="stat-bar accent2" id="barSize"></div></div>
+    </div>
+    <div class="stat-card" id="statSuccess">
+      <div class="stat-label">Uploaded</div>
+      <div class="stat-value" id="totalSuccess">0</div>
+      <div class="stat-bar-wrap"><div class="stat-bar accent3" id="barSuccess"></div></div>
+    </div>
+
+    <!-- Donut Chart -->
+    <div class="chart-card">
+      <div class="chart-label">File Types</div>
+      <div class="donut-wrap">
+        <svg id="donutChart" viewBox="0 0 120 120" width="110" height="110">
+          <circle cx="60" cy="60" r="48" fill="none" stroke="#1e1e2e" stroke-width="20"/>
+          <circle id="donutSlice1" cx="60" cy="60" r="48" fill="none" stroke="#7c6aff" stroke-width="20"
+            stroke-dasharray="0 301.59" stroke-dashoffset="75.4" transform="rotate(-90 60 60)"/>
+          <circle id="donutSlice2" cx="60" cy="60" r="48" fill="none" stroke="#ff6a6a" stroke-width="20"
+            stroke-dasharray="0 301.59" stroke-dashoffset="75.4" transform="rotate(-90 60 60)"/>
+          <circle id="donutSlice3" cx="60" cy="60" r="48" fill="none" stroke="#6affc8" stroke-width="20"
+            stroke-dasharray="0 301.59" stroke-dashoffset="75.4" transform="rotate(-90 60 60)"/>
+          <text x="60" y="64" text-anchor="middle" fill="#fff" font-size="13" font-family="Space Mono">--</text>
+        </svg>
+        <div class="donut-legend" id="donutLegend">
+          <span class="legend-item"><i style="background:#7c6aff"></i>Image</span>
+          <span class="legend-item"><i style="background:#ff6a6a"></i>Video</span>
+          <span class="legend-item"><i style="background:#6affc8"></i>Other</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RECENT FILES -->
+  <section class="recent-section">
+    <div class="section-title">Recent Uploads <span class="badge">5 latest</span></div>
+    <div class="recent-list" id="recentList">
+      <div class="empty-state">No files uploaded yet.</div>
+    </div>
+  </section>
+
+  <!-- UPLOADER -->
+  <section class="upload-section">
+    <div class="section-title">Upload Files</div>
+    <div id="dropArea" class="drop-area">
+      <input type="file" id="fileInput" multiple>
+      <div class="drop-inner">
+        <div class="drop-icon">↑</div>
+        <div class="drop-text">Drag & drop files here</div>
+        <div class="drop-sub">or click to browse</div>
+      </div>
+    </div>
+    <div id="previewContainer" class="preview-container"></div>
+  </section>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
